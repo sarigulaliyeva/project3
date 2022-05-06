@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Roboto';
+}
 .header{
     display: flex;
     flex-direction: row;
@@ -11,7 +16,7 @@
     margin-top: 15px;
     width: 89px;
     height: 23px;
-    background: url('/images/Asset\ 1@3x\ 1.svg')
+    background: url('./images/Asset\ 1@3x\ 1.svg')
 }
 a{
     margin-top: 17px;
@@ -97,6 +102,7 @@ h1{
 }
 .enter1>p, .enter2>p{
     color: #959BA4;
+    margin-bottom: 5px;
 }
 .enter2{
     margin-left: 262px;
