@@ -6,7 +6,20 @@ let rightBtn=document.querySelectorAll('.rightBtn button');
 let leftValyuta = "RUB";
 let rightValyuta = "USD";
 let rightVal=document.querySelector('.rightValyuta');
-let leftVal=document.querySelector('.leftValyuta')
+let leftVal=document.querySelector('.leftValyuta');
+const menuIcon=document.querySelector(".icon-container");
+const clickedIcon=document.getElementById("clicked");
+const menu=document.querySelector("ul");
+menuIcon.addEventListener("click",()=>{
+    menuIcon.style.display="none"
+    menu.style.display="block"
+    clickedIcon.style.display="flex"
+  })
+  clickedIcon.addEventListener("click",()=>{
+    menuIcon.style.display="flex"
+    menu.style.display="none"
+    clickedIcon.style.display="none"
+  })
 leftBtn.forEach((item)=>{
     item.addEventListener('click', function(){
         leftBtn.forEach((item)=>{
@@ -125,3 +138,65 @@ var numberMask = IMask(leftInput, {
     radix: '.',  // fractional delimiter
     mapToRadix: [','],  // symbols to process as radix
   });
+  let rightSide = true;
+let leftSide = true;
+let common=false;
+function onChangeLeft(evt){
+  if(leftSide){
+  evt.target.value = evt.target.value.replace("0","");
+  leftSide=false
+}
+  leftInput.value=evt.target.value
+  if(leftInput.value=="0"){
+    leftInput.addEventListener('input', self.onChangeLeft, true);
+    leftSide=true
+  }
+}
+function onChangeRight(evt){
+    if(rightSide){
+      console.log("e",evt.target.value)
+    evt.target.value = evt.target.value.replace("0","");
+    rightSide=false
+  }
+    rightInput.value=evt.target.value
+    if(rightInput.value=="0"){
+      rightInput.addEventListener('input', self.onChangeRight, true);
+      rightSide=true
+    }
+  }
+  function changeInput(){
+    leftInput.addEventListener('input', ()=>{
+        common=true
+        if(leftInput.value==""){
+            console.log(leftInput.value)
+            rightInput.value=""
+            rightVal.innerHTML=""
+            leftVal.innerHTML=""
+            console.log(typeof(rightInput.value))
+        }else{
+        fetchRight(leftValyuta,rightValyuta)
+        }
+        if(leftInput.value=="0"){
+            leftInput.addEventListener('input', onChangeLeft, true);
+            leftSide=true
+        }
+    })
+    rightInput.addEventListener('input', ()=>{
+        if(common && rightInput.value==0){
+            rightInput.value=0
+            console.log(inpRight.value)
+            common=false
+          }
+          if (rightInput.value == "") {
+            leftInput.value = "";
+            leftVal.innerHTML = "";
+            rightVal.innerHTML = "";
+          } else{
+        fetchLeft(rightValyuta, leftValyuta)
+          }
+          if(rightInput.value=="0"){
+            rightInput.addEventListener('input', onChangeRight, true);
+            rightSide=true
+          }
+    })
+}
