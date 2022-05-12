@@ -14,67 +14,39 @@
         background: #F5F5F6;
     }
     img{
-        width: 8.97vw;
+        width: 15.97vw;
         margin-left: 100px;
         margin-top: 15px;
     }
-    a{
+    .list{
         margin-bottom: 8px;
         margin-top: 1.71vw;
         font-style: normal;
-        color: #959BA4;
+        color: #fff;
         font-weight: 500;
-        font-size: 1.1vw;
+        font-size: 3.1vw;
         line-height: 1.31vw;
         display: flex;
         align-items: center;
         letter-spacing: 0.06em;
-        height: 1.91vw;
+        width: 50vw;
         text-decoration: none;
     }
-    .bank{
-        margin-left: 6.45vw;
-        width: 4.43vw;
-        color: #000000;
-    }
-    .business{
-        margin-left: 1.31vw;
-        width: 5.04vw;
-    }
-    .investition{
-        margin-left: 2.11vw;
-        width: 9.47vw;
-    }
-    .insurance{
-        margin-left: 1.1vw;
-        width: 9.47vw;
-        margin-right: -2.52vw;
-    }
-    .mobile{
-        margin-left: 1.61vw;
-        width: 6.85vw;
-    }
-    .trip{
-        margin-left: 0.7vw;
-        width: 10.1vw;
-        margin-right: -2.52vw;
-    }
-    .entertainment{
-        margin-left: 1vw;
-        width: 10.1vw;
-        margin-right: -2.52vw;
+    a{
+        display: none;
     }
     .signin>button{
         margin-bottom: 10px;
         margin-left: 50px;
         margin-right: 25px;
-        margin-top: 0.9vw;
-        padding-left: 0.85vw;
-        width: 5.84vw;
-        height: 3.32vw;
+        margin-top: 3.5vw;
+        padding-left: 1.55vw;
+        padding-top: 0.7vw;
+        width: 10.84vw;
+        height: 5.32vw;
         font-style: normal;
         font-weight: 500;
-        font-size: 1.1vw;
+        font-size: 2.1vw;
         line-height: 1.31vw;
         display: flex;
         align-items: center;
@@ -83,6 +55,56 @@
         color: #000000;
         background: #FFFFFF;
         border-radius: 0.4vw;
+        border: none;
+    }
+    .icon2{
+        width: 5vw;
+        height: 1vw;
+        background-color: #833ae0;
+    }
+    #clicked{
+        display: none;
+    }
+    .list{
+        display: none;
+        position: absolute;
+        width: 50vw;
+        height: 100vh;
+        background-color: rgba(245, 245, 246, 1);
+        color: black;
+        font-weight: 600;
+        font-size: 4vw;
+        justify-content: space-evenly;
+    }
+    li{
+        border-bottom: 0.5vw solid white;
+        padding: 6vw;
+        background-color: #b8bbbe;
+    }
+    li:hover{
+        cursor: pointer;
+    }
+    .header {
+        background-color: rgba(245, 245, 246, 1);
+        align-items: center;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .icon-container{
+        height: 5vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-left: 3vw;
+    }
+    .icon-container:hover{
+        cursor: pointer;
+    }
+    .icon{
+       width: 5vw;
+       height: 1vw;
+       background-color: gray;
     }
     .top>h1{
         margin-left: 25.5vw;
@@ -97,11 +119,11 @@
     }
     .inputs{
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
     }
     .enter1{
         margin-top: 3.32vw;
-        margin-left: 25.5vw;
+        margin-left: 37vw;
     }
     .enter1>p, .enter2>p{
         color: #959BA4;
@@ -109,7 +131,7 @@
         font-size: 1.21vw;
     }
     .enter2{
-        margin-left: 12.09vw;
+        margin-left: 37vw;
         margin-top: 3.32vw;
     }
     .amount{
