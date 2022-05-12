@@ -43,6 +43,13 @@ function Api(parentBtn){
 }
 function changeInput(){
     leftInput.addEventListener('input', ()=>{
+        if(leftInput.value==""){
+            console.log(leftInput.value)
+            rightInput.value=""
+            rightVal.innerHTML=""
+            leftVal.innerHTML=""
+            console.log(typeof(rightInput.value))
+        }
         fetchRight(leftValyuta,rightValyuta)
     })
     rightInput.addEventListener('input', ()=>{
@@ -56,17 +63,26 @@ function fetchRight(left, right){
         return res.json();
     })
     .then((data)=>{
-        rightInput.value=leftInput.value*data.rates[`${right}`];
-
-        leftVal.innerHTML=`1${data.leftValyuta}=${data.rates[`${right}`]}${right}`;
-        fetch(`https://api.exchangerate.host/latest?base=${right}&symbols=${left}`)
+        rightInput.value=leftInput.value.replaceAll(" ","")*data.rates[`${right}`];
+        leftVal.innerHTML=`1${left}=${data.rates[`${right}`]}${right}`;
+        rightInput.value = commify(rightInput.value)
+        fetch(`https://api.exchangerate.host/latest?base=${right}&symbols=${left} `)
         .then((res)=>{
-            res.json();
+            return res.json();
         })
         .then((data)=>{
-            rightVal.innerHTML=`${data.leftValyuta}=${data.rates[`${left}`]}${left}`;
+            rightVal.innerHTML=`1${right}=${data.rates[`${left}`]}${left}`;
         })
     })
+}
+function commify(n) {
+    var parts = n.toString().split(".");
+    const numberPart = parts[0];
+    const decimalPart = parts[1];
+    const thousands = /\B(?=(\d{3})+(?!\d))/g;
+    return (
+        numberPart.replace(thousands, " ") + (decimalPart ? "." + decimalPart : "")
+    );
 }
 function fetchLeft(left, right){
     fetch(`https://api.exchangerate.host/latest?base=${left}&symbols=${right} `)
@@ -74,15 +90,38 @@ function fetchLeft(left, right){
         return res.json();
     })
     .then((data)=>{
-        leftInput.value=rightInput.value*data.rates[`${right}`];
-        
-        rightVal.innerHTML = `1${data.leftValyuta}=${data.rates[`${left}`]}${left}`;
+        leftInput.value=rightInput.value.replaceAll(" ","")*data.rates[`${right}`];
+        rightVal.innerHTML = `1${left}=${data.rates[`${right}`]}${right}`;
+        leftInput.value = commify(leftInput.value)
         fetch(`https://api.exchangerate.host/latest?base=${right}&symbols=${left}`)
         .then((res)=>{
             return res.json();
         })
         .then((data)=>{
-            leftVal.innerHTML=`1${data.leftValyuta}=${data.rates[`${right}`]}${right}`
+
+            leftVal.innerHTML=`1${right}=${data.rates[`${left}`]}${left}`
         })
     })
 }
+var numberMask = IMask(leftInput, {
+    mask: Number,  // enable number mask
+  
+    // other options are optional with defaults below
+    scale: 6,  // digits after point, 0 for integers
+    signed: false,  // disallow negative
+    thousandsSeparator: ' ',  // any single char
+    padFractionalZeros: false,  // if true, then pads zeros at end to the length of scale
+    normalizeZeros: true,  // appends or removes zeros at ends
+    radix: '.',  // fractional delimiter
+    mapToRadix: [','],  // symbols to process as radix
+  });
+  var numberMask = IMask(rightInput, {
+    mask: Number,  
+    scale: 6,  // digits after point, 0 for integers
+    signed: false,  // disallow negative
+    thousandsSeparator: ' ',  // any single char
+    padFractionalZeros: false,  // if true, then pads zeros at end to the length of scale
+    normalizeZeros: true,  // appends or removes zeros at ends
+    radix: '.',  // fractional delimiter
+    mapToRadix: [','],  // symbols to process as radix
+  });
