@@ -10,16 +10,6 @@ let leftVal=document.querySelector('.leftValyuta');
 const menuIcon=document.querySelector(".icon-container");
 const clickedIcon=document.getElementById("clicked");
 const menu=document.querySelector("ul");
-menuIcon.addEventListener("click",()=>{
-    menuIcon.style.display="none"
-    menu.style.display="block"
-    clickedIcon.style.display="flex"
-  })
-  clickedIcon.addEventListener("click",()=>{
-    menuIcon.style.display="flex"
-    menu.style.display="none"
-    clickedIcon.style.display="none"
-  })
 leftBtn.forEach((item)=>{
     item.addEventListener('click', function(){
         leftBtn.forEach((item)=>{
@@ -199,4 +189,14 @@ function onChangeRight(evt){
             rightSide=true
           }
     })
+    menuIcon.addEventListener("click",()=>{
+        menuIcon.style.display="none"
+        menu.style.display="block"
+        clickedIcon.style.display="flex"
+      })
+      clickedIcon.addEventListener("click",()=>{
+        menuIcon.style.display="flex"
+        menu.style.display="none"
+        clickedIcon.style.display="none"
+      })
 }
