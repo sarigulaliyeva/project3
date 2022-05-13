@@ -10,6 +10,9 @@ let leftVal=document.querySelector('.leftValyuta');
 const menuIcon=document.querySelector(".icon-container");
 const clickedIcon=document.getElementById("clicked");
 const menu=document.querySelector("ul");
+
+fetchRight(leftValyuta,rightValyuta)
+
 leftBtn.forEach((item)=>{
     item.addEventListener('click', function(){
         leftBtn.forEach((item)=>{
