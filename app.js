@@ -145,8 +145,11 @@ var numberMask = IMask(leftInput, {
   let rightSide = true;
   let leftSide = true;
   let common=false;
-    function onChangeLeft(evt){
-  if(leftSide){
+function onChangeLeft(evt){
+    if(leftInput.value[1]=="," || leftInput.value[1]=="."){
+    
+    }
+  else if(leftSide){
   evt.target.value = evt.target.value.replace("0","");
   leftSide=false
 }
@@ -157,7 +160,10 @@ var numberMask = IMask(leftInput, {
   }
 }
 function onChangeRight(evt){
-    if(rightSide){
+    if(rightInput.value[1]=="," || rightInput.value[1]=="."){
+    
+    }
+    else if(rightSide){
       console.log("e",evt.target.value)
     evt.target.value = evt.target.value.replace("0","");
     rightSide=false
