@@ -7,9 +7,6 @@ let leftValyuta = "RUB";
 let rightValyuta = "USD";
 let rightVal=document.querySelector('.rightValyuta');
 let leftVal=document.querySelector('.leftValyuta');
-const menuIcon=document.querySelector(".icon-container");
-const clickedIcon=document.getElementById("clicked");
-const menu=document.querySelector("ul");
 
 fetchRight(leftValyuta,rightValyuta)
 
@@ -131,10 +128,24 @@ var numberMask = IMask(leftInput, {
     radix: '.',  // fractional delimiter
     mapToRadix: [','],  // symbols to process as radix
   });
+    let menuIcon=document.querySelector(".commonIcon");
+    let clickedIcon=document.getElementById("clicked");
+    let menu=document.querySelector("ul");
+
+        menuIcon.addEventListener("click",()=>{
+        menuIcon.style.display="none"
+        menu.style.display="block"
+        clickedIcon.style.display="flex"
+      })
+        clickedIcon.addEventListener("click",()=>{
+        menuIcon.style.display="flex"
+        menu.style.display="none"
+        clickedIcon.style.display="none"
+      })
   let rightSide = true;
-let leftSide = true;
-let common=false;
-function onChangeLeft(evt){
+  let leftSide = true;
+  let common=false;
+    function onChangeLeft(evt){
   if(leftSide){
   evt.target.value = evt.target.value.replace("0","");
   leftSide=false
@@ -192,14 +203,4 @@ function onChangeRight(evt){
             rightSide=true
           }
     })
-    menuIcon.addEventListener("click",()=>{
-        menuIcon.style.display="none"
-        menu.style.display="block"
-        clickedIcon.style.display="flex"
-      })
-      clickedIcon.addEventListener("click",()=>{
-        menuIcon.style.display="flex"
-        menu.style.display="none"
-        clickedIcon.style.display="none"
-      })
 }
