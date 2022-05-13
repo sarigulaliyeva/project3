@@ -57,7 +57,7 @@
         border-radius: 0.4vw;
         border: none;
     }
-    .icon2{
+    .secondIcon{
         width: 5vw;
         height: 1vw;
         background-color: #833ae0;
@@ -91,14 +91,14 @@
         display: flex;
         justify-content: space-between;
     }
-    .icon-container{
+    .commonIcon{
         height: 5vw;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         margin-left: 3vw;
     }
-    .icon-container:hover{
+    .commonIcon:hover{
         cursor: pointer;
     }
     .icon{
