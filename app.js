@@ -158,10 +158,11 @@ var numberMask = IMask(leftInput, {
     if(leftInput.value[1]=="," || leftInput.value[1]=="."){
     
     }
-  else if(leftSide){
-  evt.target.value = evt.target.value.replace("0","");
-  leftSide=false
+  else if(leftSide  && evt.target.value.length===2){ 
+  evt.target.value = evt.target.value[0].replace("0","");
+  leftSide=false;
 }
+
   leftInput.value=evt.target.value
   if(leftInput.value=="0"){
     leftInput.addEventListener('input', self.onChangeLeft, true);
@@ -172,7 +173,7 @@ function onChangeRight(evt){
     if(rightInput.value[1]=="," || rightInput.value[1]=="."){
     
     }
-    else if(rightSide){
+    else if(rightSide && evt.target.value.length===2){
       console.log("e",evt.target.value)
     evt.target.value = evt.target.value.replace("0","");
     rightSide=false
