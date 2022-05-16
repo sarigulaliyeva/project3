@@ -12,12 +12,12 @@ fetchRight(leftValyuta,rightValyuta)
 
 leftInput.addEventListener('input', ()=>{
     if(leftInput.value[0]=="," || leftInput.value[0]=="."){
-        leftInput.value=""
+        leftInput.value="";
     }
 })
 rightInput.addEventListener('input', ()=>{
     if(rightInput.value[0]=="," || rightInput.value[0]=="."){
-        rightInput.value=""
+        rightInput.value="";
     }
 })
 leftBtn.forEach((item)=>{
@@ -57,11 +57,9 @@ function Api(parentBtn){
 function changeInput(){
     leftInput.addEventListener('input', ()=>{
         if(leftInput.value==""){
-            console.log(leftInput.value)
             rightInput.value=""
             rightVal.innerHTML=""
             leftVal.innerHTML=""
-            console.log(typeof(rightInput.value))
         }fetchRight(leftValyuta,rightValyuta)
     })
     rightInput.addEventListener('input', ()=>{
@@ -159,7 +157,7 @@ var numberMask = IMask(leftInput, {
     
     }
   else if(leftSide  && evt.target.value.length===2){ 
-  evt.target.value = evt.target.value[0].replace("0","");
+  evt.target.value = evt.target.value.replace("0","");
   leftSide=false;
 }
 
@@ -173,8 +171,8 @@ function onChangeRight(evt){
     if(rightInput.value[1]=="," || rightInput.value[1]=="."){
     
     }
+    
     else if(rightSide && evt.target.value.length===2){
-      console.log("e",evt.target.value)
     evt.target.value = evt.target.value.replace("0","");
     rightSide=false
   }
@@ -188,11 +186,9 @@ function onChangeRight(evt){
     leftInput.addEventListener('input', ()=>{
         common=true
         if(leftInput.value==""){
-            console.log(leftInput.value)
             rightInput.value=""
             rightVal.innerHTML=""
             leftVal.innerHTML=""
-            console.log(typeof(rightInput.value))
         }else{
         fetchRight(leftValyuta,rightValyuta)
         }
@@ -203,8 +199,6 @@ function onChangeRight(evt){
     })
     rightInput.addEventListener('input', ()=>{
         if(common && rightInput.value==0){
-            rightInput.value=0
-            console.log(inpRight.value)
             common=false
           }
           if (rightInput.value == "") {
