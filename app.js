@@ -10,6 +10,16 @@ let leftVal=document.querySelector('.leftValyuta');
 
 fetchRight(leftValyuta,rightValyuta)
 
+leftInput.addEventListener('input', ()=>{
+    if(leftInput.value[0]=="," || leftInput.value[0]=="."){
+        leftInput.value=""
+    }
+})
+rightInput.addEventListener('input', ()=>{
+    if(rightInput.value[0]=="," || rightInput.value[0]=="."){
+        rightInput.value=""
+    }
+})
 leftBtn.forEach((item)=>{
     item.addEventListener('click', function(){
         leftBtn.forEach((item)=>{
@@ -52,8 +62,7 @@ function changeInput(){
             rightVal.innerHTML=""
             leftVal.innerHTML=""
             console.log(typeof(rightInput.value))
-        }
-        fetchRight(leftValyuta,rightValyuta)
+        }fetchRight(leftValyuta,rightValyuta)
     })
     rightInput.addEventListener('input', ()=>{
         fetchLeft(rightValyuta, leftValyuta)
@@ -145,7 +154,7 @@ var numberMask = IMask(leftInput, {
   let rightSide = true;
   let leftSide = true;
   let common=false;
-function onChangeLeft(evt){
+    function onChangeLeft(evt){
     if(leftInput.value[1]=="," || leftInput.value[1]=="."){
     
     }
